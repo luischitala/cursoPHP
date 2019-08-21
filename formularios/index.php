@@ -1,3 +1,13 @@
+<?php 
+if ($_POST) {
+echo $_POST['nombre'];
+	
+}
+
+
+ ?>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,7 +15,7 @@
 </head>
 <body>
 
-	<form action="recibe.php" method="post" name="" >
+	<form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="get" name="" >
 		<input type="text" placeholder="Nombre:" name="nombre">
 		<br>
 		<label for="hombre">Hombre</label>
@@ -24,6 +34,7 @@
 		<label for="terminos">Aceptas los terminos?</label>
 		<input type="checkbox" name="terminos" id="terminos" value="ok">
 		<input type="submit" name="" value="Enviar">
+		<a href=""></a>
 	</form>
 
 </body>
