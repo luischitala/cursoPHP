@@ -16,6 +16,14 @@ $articulos = $conexion->prepare("
 	");
 	$articulos->execute();
 	$articulos = $articulos->fetchALL();
-	print_r($articulos);
+	
+	if (!$articulos) {
+		header('Location: index.php');
+	}
+	$totalArticulos = $conexion->query('select FOUND_ROWS() as total');
+	$totalArticulos = $totalArticulos->fetch()['total'];
+	$numeroPagina = ceil($totalArticulos/$postPorPagina);
+	echo $numeroPagina;
+
 require 'index.view.php';
  ?>
