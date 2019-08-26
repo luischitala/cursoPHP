@@ -1,6 +1,9 @@
-<?php 
+<?php session_start();
 
-require 'views/contenido.view.php'
-
-
+if (isset(S_SESSION['usuario'])) {
+require 'views/contenido.view.php';
+	
+}else {
+	header('Location:login.php');
+}
  ?>
